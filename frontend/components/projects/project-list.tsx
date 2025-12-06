@@ -29,7 +29,17 @@ export function ProjectList() {
   })
 
   if (isLoading) return <div>Loading projects...</div>
-  if (error) return <div>Error loading projects.</div>
+  if (error) return (
+      <div>
+          <div>Error loading projects.</div>
+          <pre className="text-xs text-red-500 mt-2">
+              {error instanceof Error ? error.message : "Unknown error"}
+          </pre>
+          <div className="text-xs text-muted-foreground mt-4">
+              DEBUG: Token in storage: {typeof window !== 'undefined' && localStorage.getItem('access_token') ? "Yes" : "No"}
+          </div>
+      </div>
+  )
   
   if (!projects || projects.length === 0) {
       return (

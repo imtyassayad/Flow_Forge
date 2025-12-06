@@ -1,5 +1,8 @@
 from django.utils.text import slugify
 import uuid
+from dj_rest_auth.registration.serializers import RegisterSerializer
+from rest_framework import serializers
+from apps.companies.models import Company
 
 class CustomRegisterSerializer(RegisterSerializer):
     company_name = serializers.CharField(required=True, max_length=255)

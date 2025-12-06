@@ -33,7 +33,7 @@ api.interceptors.response.use(
             console.warn('Unauthorized access');
              if (typeof window !== 'undefined') {
                 localStorage.removeItem('access_token');
-                window.location.href = '/login'; // Force Redirect
+                // window.location.href = '/login'; // Force Redirect
             }
         }
         return Promise.reject(error);
